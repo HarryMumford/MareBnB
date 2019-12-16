@@ -26,7 +26,7 @@ I want to view a list of spaces
 
 ## Database setup
 
-After running `bundle install` run the following commands to set up the databases
+After running `gem install bundler` and then `bundle install` run the following commands to set up the databases
 
 ```
 $ createdb MareBnB
