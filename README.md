@@ -16,7 +16,7 @@ So a lodger can view info about the listing
 I want to add a name and description to a space
 
 As a lodger
-So i can have a place to stay
+So I can have a place to stay
 I would like to request to hire a space
 
 As a lodger
