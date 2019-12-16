@@ -23,3 +23,14 @@ As a lodger
 So I can select a place to stay
 I want to view a list of spaces
 ```
+
+## Database setup
+
+After running `bundle install` run the following commands to set up the databases
+
+```
+$ createdb MareBnB
+$ createdb MareBnB-test
+$ bundle exec rake db:migrate
+$ bundle exec rake db:migrate RACK_ENV=test
+```
