@@ -1,5 +1,11 @@
 <ul>
   <% @listings.each do |listing| %>
-  <li><%= listing.name %>: <%= listing.description %></li>
+  <li><%= listing.name %>: <%= listing.description %>
+    <form action="/listings/<%= listing.id %>" method="get">
+      <button id="request_listing" type="submit">
+        Request Listing
+      </button>
+    </form>
+  </li>
   <% end %>
 </ul>

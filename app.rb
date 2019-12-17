@@ -21,7 +21,7 @@ class MareBnB < Sinatra::Base
   end
 
   post '/listings' do
-    Listing.create(name: params[:name], description: params[:description], user_id: 1)
+    Listing.create(name: params[:name], description: params[:description], user_id: session[:user_id])
     redirect '/listings'
   end
 
@@ -33,6 +33,11 @@ class MareBnB < Sinatra::Base
     user = User.create(name: params[:name], email: params[:email])
     session[:user_id] = user.id
     redirect '/listings'
+  end
+
+  get '/listings/:id' do
+    @listing = Listing.find_by(id: params[:id])
+    erb :'listings/show'
   end
 
   run! if app_file == $0
