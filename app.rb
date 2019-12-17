@@ -30,8 +30,29 @@ class MareBnB < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(name: params[:name], email: params[:email])
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = user.id
+    redirect '/listings'
+  end
+
+  get '/login' do
+    @message = session[:message]
+    erb :login
+  end
+
+  post '/login' do
+    user = User.find_by(email: params[:email])
+    if user&.authenticate(params[:password])  
+      session[:user_id] = user.id
+      redirect '/listings'
+    else
+      session[:message] = "Incorrect details"
+      redirect '/login'
+    end
+  end
+
+  get '/logout' do
+    session.delete(:user_id)
     redirect '/listings'
   end
 

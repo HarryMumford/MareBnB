@@ -1,5 +1,7 @@
 <h1>MareBnB</h1>
+<%= @message %>
 <% if @user %>
-Welcome <%= @user.name %>
+  Welcome <%= @user.name %>
+<a href='/logout'>Log out</a>
 <% end %>
 <%= yield if block_given? %>
