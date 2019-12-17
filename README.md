@@ -22,6 +22,18 @@ I would like to request to hire a space
 As a lodger
 So I can select a place to stay
 I want to view a list of spaces
+
+As a user
+So I can interact with the website
+I want to be able to register
+
+As a user
+So other people can't use my account
+I want to log out
+
+As a user
+So I can continue my previous activity
+I want to login
 ```
 
 ## Database setup
