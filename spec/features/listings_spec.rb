@@ -1,5 +1,12 @@
 feature 'create and view listings' do
 
+  scenario 'user redirects to listings/new' do
+    visit '/listings'
+    click_button 'add_new_listing'
+
+    expect(current_path).to eq('/listings/new')
+  end
+
   scenario 'user can create and view their listing' do
     visit '/listings/new'
     fill_in 'listing_name', with: 'Test Listing 1'

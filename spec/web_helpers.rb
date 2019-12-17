@@ -1,7 +1,7 @@
 def sign_up_and_login
   visit '/'
+  fill_in 'name', with: 'Landlord'
   fill_in 'email', with: 'Test@email.com'
-  fill_in 'password', with: 'password123'
   fill_in 'password', with: 'password123'
   click_button 'sign_up'
 end

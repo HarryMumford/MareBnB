@@ -37,6 +37,7 @@ class MareBnB < Sinatra::Base
 
   get '/listings/:id' do
     @listing = Listing.find_by(id: params[:id])
+    @user = User.find_by(id: @listing.user_id)
     erb :'listings/show'
   end
 

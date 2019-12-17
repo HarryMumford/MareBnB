@@ -1,3 +1,6 @@
+<form action="/listings/new" method="get">
+  <button id="add_new_listing" type="submit">Add new listing</button>
+</form>
 <ul>
   <% @listings.each do |listing| %>
   <li><%= listing.name %>: <%= listing.description %>
