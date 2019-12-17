@@ -3,7 +3,7 @@
 </form>
 <ul>
   <% @listings.each do |listing| %>
-  <li><%= listing.name %>: <%= listing.description %>
+    <li><%= listing.name %> (<%= listing.price %>): <%= listing.description %>
     <form action="/listings/<%= listing.id %>" method="get">
       <button id="request_listing" type="submit">
         Request Listing

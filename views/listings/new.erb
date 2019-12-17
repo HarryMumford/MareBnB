@@ -1,5 +1,6 @@
 <form action="/listings" method="post">
-  <input id="listing_name" type="text" name="name" placeholder="Name">
-  <input id="listing_description" type="text" name="description" placeholder="Description">
+  <input id="listing_name" type="text" name="name" placeholder="Name" required>
+  <input id="listing_description" type="text" name="description" placeholder="Description" required>
+  <input id="listing_price" type="number" name="price" placeholder="Price" min='5' max='25000' required>
   <button id="post_listing" type="submit">Post</button>
 </form> 
