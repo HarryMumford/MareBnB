@@ -1,0 +1,5 @@
+<h1>MareBnB</h1>
+<% if @user %>
+Welcome <%= @user.name %>
+<% end %>
+<%= yield if block_given? %>
