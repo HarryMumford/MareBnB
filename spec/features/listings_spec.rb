@@ -1,6 +1,6 @@
 feature 'create and view listings' do
 
-  scenario 'lodger can view all created listings' do
+  scenario 'user can create and view their listing' do
     visit '/listings/new'
     fill_in 'listing_name', with: 'Test Listing 1'
     fill_in 'listing_description', with: 'i am a test description of test listing 1'
