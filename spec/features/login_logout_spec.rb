@@ -1,22 +1,26 @@
 feature 'login logout' do
   scenario 'user logs out and then log in' do
     # registering a user
-    visit '/users/new'
-    fill_in 'name', with: 'test_user_1'
-    fill_in 'email', with: 'test_1_email@test.com'
-    fill_in 'password',with: 'testPassword'
-    click_button 'submit' 
+    register('test_user_1', 'test_1_email@test.com', 'testPassword')
 
     click_on 'Log out'
     expect(current_path).to eq '/listings'
     expect(page).not_to have_content('Welcome test_user_1')
 
-    visit '/login'
-    fill_in 'user_email', with: 'test_1_email@test.com'
-    fill_in 'password', with: 'testPassword'
-    click_button 'Log in'
+    log_in('test_1_email@test.com', 'testPassword')
 
     expect(current_path).to eq '/listings'
     expect(page).to have_content('Welcome test_user_1')
+  end
+
+  scenario 'user tries to log in with wrong password' do
+    register('test_user_1', 'test_1_email@test.com', 'testPassword')
+
+    click_on 'Log out'
+
+    log_in('test_1_email@test.com', 'wrongTestPassword')
+    
+    expect(current_path).to eq('/login')
+    expect(page).to have_content('Incorrect details')
   end
 end
