@@ -7,7 +7,7 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database MareBnB-test;' -U postgres
+  - psql -c 'create database "MareBnB-test";' -U postgres
   - bundle exec rake db:migrate RACK_ENV=test
 
 script:
