@@ -45,6 +45,7 @@
 AllCops:
   Exclude:
     - 'db/schema.rb'
+    - '**/vendor/**/*'
 
 Metrics/LineLength:
   Exclude:
