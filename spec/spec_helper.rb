@@ -13,6 +13,7 @@ SimpleCov.start
 
 require_relative '../app'
 require_relative 'setup_test_database'
+require_relative 'web_helpers.rb'
 require_relative 'helpers/register_log_in'
 
 Capybara.app = MareBnB
