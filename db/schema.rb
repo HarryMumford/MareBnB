@@ -21,12 +21,6 @@ ActiveRecord::Schema.define(version: 2019_12_17_165808) do
     t.integer "listing_id"
   end
 
-  create_table "availability", force: :cascade do |t|
-    t.date "start"
-    t.date "end"
-    t.integer "listing_id"
-  end
-
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.string "description"
