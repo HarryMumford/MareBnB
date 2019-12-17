@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require_relative 'lib/listing'
 require_relative 'lib/user'
+require_relative 'lib/availability'
 
 class MareBnB < Sinatra::Base
   enable :sessions
@@ -21,10 +22,15 @@ class MareBnB < Sinatra::Base
   end
 
   post '/listings' do
-    Listing.create(
+    listing = Listing.create(
       name: params[:name],
       description: params[:description],
       user_id: session[:user_id]
+    )
+    Availability.create(
+      start: params[:start_date],
+      end: params[:end_date],
+      listing_id: listing.id
     )
     redirect '/listings'
   end
@@ -42,6 +48,7 @@ class MareBnB < Sinatra::Base
   get '/listings/:id' do
     @listing = Listing.find_by(id: params[:id])
     @user = User.find_by(id: @listing.user_id)
+    @availability = Availability.all.select { |a| a.listing_id == @listing.id }
     erb :'listings/show'
   end
   

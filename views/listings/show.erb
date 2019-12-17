@@ -2,3 +2,19 @@
 Name: <%= @listing.name %><br>
 Description: <%= @listing.description %><br>
 Contact: <%= @user.email %>
+
+<section>
+<h2> Availability </h2>
+<table style="width:30%">
+  <tr>
+    <th>Start</th>
+    <th>End</th> 
+  </tr>
+    <% @availability.each do |availability| %>
+    <tr>
+      <td><%= availability.start %></td>
+      <td><%= availability.end %></td>
+    </tr>
+    <% end %>
+</table>
+</section>
