@@ -3,5 +3,5 @@ def setup_test_database
 
   connection.exec("TRUNCATE listings, users;")
 ensure
-  connection.close if connection
+  connection&.close
 end
