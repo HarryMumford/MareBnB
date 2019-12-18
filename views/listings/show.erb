@@ -19,6 +19,7 @@ Contact: <%= @user.email %>
 </table>
 <h2> Choose your dates </h2>
 <form action='/show' method='post'>
+  <input type='hidden' name='listing_id' value='<%=@listing.id%>'>
   <button type='submit' id='confirm_request'>
   <label for="start_date">Start date:</label>
   <input type="date" id="start_date" name="start_date" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2020-12-31">

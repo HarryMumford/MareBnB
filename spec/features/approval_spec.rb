@@ -9,12 +9,10 @@ feature 'Requests' do
 
     expect(current_path).to eq '/listings'
 
-    click_button 'user_requests'
+    click_link 'user_requests'
 
-    expect(current_path).to eq '/requests'
     expect(page).to have_content("Test Listing 1")
     expect(page).to have_content("I am a test description of test listing 1")
     expect(page).to have_content(1000)
-
   end
 end
