@@ -49,7 +49,7 @@ class MareBnB < Sinatra::Base
   get '/listings/:id' do
     @listing = Listing.find_by(id: params[:id])
     @user = User.find_by(id: @listing.user_id)
-    @availability = Availability.all.select { |a| a.listing_id == @listing.id }
+    @availability = Availability.select_by_listing(@listing.id)
     erb :'listings/show'
   end
 
