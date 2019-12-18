@@ -1,11 +1,13 @@
 <form action="/listings" method="post">
-  <input id="listing_name" type="text" name="name" placeholder="Name">
-  <input id="listing_description" type="text" name="description" placeholder="Description">
+
+  <input id="listing_name" type="text" name="name" placeholder="Name" required>
+  <input id="listing_description" type="text" name="description" placeholder="Description" required>
+  <input id="listing_price" type="number" name="price" placeholder="Price" min='5' max='25000' required>
 
   <label for="start_date">Start date:</label>
   <input type="date" id="start_date" name="start_date" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2020-12-31">
   <label for="end_date">End date:</label>
   <input type="date" id="end_date" name="end_date" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2020-12-31">
-
+  
   <button id="post_listing" type="submit">Post</button>
 </form>
