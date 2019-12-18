@@ -74,5 +74,9 @@ class MareBnB < Sinatra::Base
     redirect '/listings'
   end
 
+  post '/show' do
+    redirect '/listings'
+  end
+
   run! if app_file == $0
 end
