@@ -2,7 +2,7 @@ feature 'Requesting to hire a space' do
   scenario 'user can request a listing to stay at' do
     register('Landlord', 'landlord@email.com', 'password123')
     expect(current_path).to eq '/listings'
-    list_a_space('Test Listing 1', 'i am a test description of test listing 1', 900)
+    list_a_space('Test Listing 1', 'i am a test description of test listing 1', 900, "01/01/2020", "07/01/2020")
     click_on 'Log out'
 
     register('Lodger', 'lodger@email.com', 'password456')

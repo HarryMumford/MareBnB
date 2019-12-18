@@ -52,7 +52,7 @@ class MareBnB < Sinatra::Base
     @availability = Availability.all.select { |a| a.listing_id == @listing.id }
     erb :'listings/show'
   end
-  
+
   get '/login' do
     @message = session[:message]
     erb :login
@@ -60,7 +60,7 @@ class MareBnB < Sinatra::Base
 
   post '/login' do
     user = User.find_by(email: params[:email])
-    if user&.authenticate(params[:password])  
+    if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/listings'
     else
