@@ -35,9 +35,7 @@ I want to log out
 As a user
 So I can continue my previous activity
 I want to login
-```
-*To be completed...*
-```
+
 As a user
 So I can name my price
 I want to add a price per night to my space
@@ -45,6 +43,24 @@ I want to add a price per night to my space
 As a user
 So I can choose when people come
 I want to show the available dates
+```
+*To be completed...*
+```
+As a lodger
+So I can confirm my stay
+I would like to see if the landlord has approved my request
+
+As a landlord
+So I have a choice of who can stay
+I would like to be able to approve requests
+
+As a landlord
+So I don't have to deal with pointless requests
+I would like it so lodgers are unable to book unavailable dates
+
+As a landlord
+So I can choose from the requesters
+I would like the space to be available until I approve the booking
 ```
 
 ## Database setup
@@ -64,11 +80,11 @@ We would like a web application that allows users to list spaces they have avail
 
 ### Headline specifications
 
-- ~~Any signed-up user can list a new space.~~
-- ~~Users can list multiple spaces.~~
-- ~~Users should be able to name their space, provide a short description of the space,~~ and a price per night. 
-- Users should be able to offer a range of dates where their space is available.
-- ~~Any signed-up user can request to hire any space~~ for one night, and this should be approved by the user that owns that space.
+- ~~Any signed-up user can list a new space.
+- ~~Users can list multiple spaces.
+- ~~Users should be able to name their space, provide a short description of the space, and a price per night. 
+- ~~Users should be able to offer a range of dates where their space is available.
+- ~~Any signed-up user can request to hire any space for one night, ~~and this should be approved by the user that owns that space.
 - Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
