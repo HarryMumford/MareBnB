@@ -38,6 +38,15 @@ describe Request do
         rejected: false
       )
 
+      request_to_be_rejected_4 = Request.create(
+        listing_id: listing_id,
+        user_id: 4,
+        start: Date.parse("08/01/2021"),
+        end: Date.parse("30/01/2021"),
+        accepted: false,
+        rejected: false
+      )
+
       requests_to_be_rejected = Request.coinciding_requests(request_to_be_accepted)
 
       expect(requests_to_be_rejected).to_not include(request_to_be_accepted)
@@ -45,7 +54,8 @@ describe Request do
       expect(requests_to_be_rejected).to include(
         request_to_be_rejected_1, 
         request_to_be_rejected_2,
-        request_to_be_rejected_3
+        request_to_be_rejected_3,
+        request_to_be_rejected_4
       )
     end
   end
