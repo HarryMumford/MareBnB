@@ -1,7 +1,23 @@
 <h1>Requests</h1>
 <h3>Requests I have made</h3>
-<% @listings.each do |listing| %>
-Name of Listing: <%= listing.name %>
-Description: <%= listing.description %>
-Price: <%= listing.price %>
+<ul>
+<% @made_requests.each do |request| %>
+<li>
+Name of Listing: <%= request.listing.name %>
+Description: <%= request.listing.description %>
+Price: <%= request.listing.price %>
+</li>
 <% end %>
+</ul>
+<h3>Requests I have received</h3>
+<ul>
+  <% @received_requests.each do |request| %>
+  <li>
+    Name of listing: <%= request.listing.name %>
+    Name of user: <%= User.find_by(id: request.user_id).name %>
+    Email of user: <%= User.find_by(id: request.user_id).email %>
+    Start date: <%= request.start %>
+    End date: <%= request.end %>
+  </li>
+  <% end %>
+</ul>
