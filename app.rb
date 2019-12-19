@@ -75,7 +75,7 @@ class MareBnB < Sinatra::Base
 
   get '/logout' do
     session.delete(:user_id)
-    redirect '/listings'
+    redirect '/'
   end
 
   post '/requests/new' do

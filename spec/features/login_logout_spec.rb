@@ -4,7 +4,7 @@ feature 'login logout' do
     register('test_user_1', 'test_1_email@test.com', 'testPassword')
 
     click_on 'Log out'
-    expect(current_path).to eq '/listings'
+    expect(current_path).to eq '/'
     expect(page).not_to have_content('Welcome test_user_1')
 
     log_in('test_1_email@test.com', 'testPassword')
