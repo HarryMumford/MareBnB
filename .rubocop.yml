@@ -58,6 +58,14 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'test/**/*'
 
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/availability.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/availability.rb'
+
 # Code Style
 # ==========
 #
