@@ -1,5 +1,5 @@
 def register(name, email, password)
-  visit '/'
+  visit '/users/new'
   fill_in 'name', with: name
   fill_in 'email', with: email
   fill_in 'password', with: password

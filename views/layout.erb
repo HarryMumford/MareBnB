@@ -17,17 +17,17 @@
   <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand">
             <img id="logo" src="img/logo-white.png">
           </a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/listings">Listings</a></li>
-          <li><a href="#">Requests</a></li>
+          <li><a href="/requests">Requests</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
@@ -40,6 +40,12 @@
     <a href='/logout'>Log out</a>
     <% end %>
     <%= yield if block_given? %>
+    <script>
+      $(document).ready(function() {
+        $('li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
+      });
+    </script>
 </body>
 </html>
 
