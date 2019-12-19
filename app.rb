@@ -8,13 +8,16 @@ require_relative 'lib/request'
 class MareBnB < Sinatra::Base
   enable :sessions
 
+  before do
+    @user = User.find_by(id: session[:user_id])
+  end
+
   get '/' do
     erb :index
   end
 
   get '/listings' do
     @listings = Listing.all
-    @user = User.find_by(id: session[:user_id])
     erb :listings
   end
 
