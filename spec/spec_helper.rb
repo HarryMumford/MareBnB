@@ -19,6 +19,7 @@ require_relative 'setup_test_database'
 
 Capybara.app = MareBnB
 Capybara.server = :webrick
+Capybara.default_max_wait_time = 15
 
 RSpec.configure do |config|
   config.before(:each) do
