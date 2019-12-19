@@ -1,15 +1,48 @@
-<html>
-  <head>
-    <script src='/javascript/jQuery.js'></script>
-  </head>
-  <body>
-    <h1>MareBnB</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MareBnB</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/layout.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<body>
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">MareBnB</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/listings">Listings</a></li>
+          <% if @user %>
+            <li><a id="user_requests" href="/requests/<%= @user.id %>">Requests</a></li>
+          <% end %>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if @user %>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <%= @user.name %></a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+          <% else %>
+            <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign up</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
     <%= @message %>
-    <% if @user %>
-      Welcome <%= @user.name %>
-      <a id='user_requests' href='/requests/<%= @user.id %>'>Requests</a>
-      <a href='/logout'>Log out</a>
-    <% end %>
+
     <%= yield if block_given? %>
-  </body>
+
+    <script src="src/layout_interface.js"></script>
+</body>
 </html>
+  

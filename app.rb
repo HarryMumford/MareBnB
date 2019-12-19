@@ -9,13 +9,16 @@ require_relative 'lib/helpers/request_status.rb'
 class MareBnB < Sinatra::Base
   enable :sessions
 
+  before do
+    @user = User.find_by(id: session[:user_id])
+  end
+
   get '/' do
     erb :index
   end
 
   get '/listings' do
     @listings = Listing.all
-    @user = User.find_by(id: session[:user_id])
     erb :listings
   end
 
@@ -73,7 +76,7 @@ class MareBnB < Sinatra::Base
 
   get '/logout' do
     session.delete(:user_id)
-    redirect '/listings'
+    redirect '/'
   end
 
   post '/requests/new' do
