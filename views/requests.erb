@@ -1,0 +1,7 @@
+<h1>Requests</h1>
+<h3>Requests I have made</h3>
+<% @listings.each do |listing| %>
+Name of Listing: <%= listing.name %>
+Description: <%= listing.description %>
+Price: <%= listing.price %>
+<% end %>

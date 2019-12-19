@@ -2,6 +2,7 @@
 <%= @message %>
 <% if @user %>
   Welcome <%= @user.name %>
+<a id='user_requests' href='/requests/<%= @user.id %>'>Requests</a>
 <a href='/logout'>Log out</a>
 <% end %>
 <%= yield if block_given? %>

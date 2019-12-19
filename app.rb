@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require_relative 'lib/listing'
 require_relative 'lib/user'
 require_relative 'lib/availability'
+require_relative 'lib/request'
 
 class MareBnB < Sinatra::Base
   enable :sessions
@@ -72,6 +73,25 @@ class MareBnB < Sinatra::Base
   get '/logout' do
     session.delete(:user_id)
     redirect '/listings'
+  end
+
+  post '/requests/new' do
+    Request.create(
+      user_id: session[:user_id],
+      listing_id: params[:listing_id],
+      start: params[:start_date],
+      end: params[:end_date],
+      accepted: false,
+      rejected: false
+    )
+    redirect '/listings'
+  end
+
+  get '/requests/:id' do
+    @requests = Request.all.select { |r| r.user_id == session[:user_id] }
+    request_listing_ids = @requests.map(&:listing_id)
+    @listings = Listing.all.select { |l| request_listing_ids.include?(l.id) }
+    erb :requests
   end
 
   run! if app_file == $0
