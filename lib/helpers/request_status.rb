@@ -1,3 +1,3 @@
 def status_of request
-  "pending"
+  "pending" if request
 end

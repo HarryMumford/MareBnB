@@ -90,7 +90,8 @@ class MareBnB < Sinatra::Base
 
   get '/requests/:id' do
     @made_requests = Request.joins(:listing).select { |r| r.user_id == session[:user_id] }
-    @received_requests = Request.joins(:listing).select { |r| r.listing.user_id == session[:user_id] }
+    @received_requests = Request.joins(:listing)
+      .select { |r| r.listing.user_id == session[:user_id] }
     erb :requests
   end
 

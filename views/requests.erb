@@ -1,3 +1,11 @@
+<script>
+  function accept_request(id) {
+    $(`#status${id}`).text("Accepted");
+    $(`#accept${id}`).hide();
+    $(`#reject${id}`).hide();
+    console.log("hello")
+  }
+</script>
 <h1>Requests</h1>
 <h3>Requests I have made</h3>
 <ul>
@@ -19,6 +27,9 @@ Status: <%= status_of(request) %>
     Email of user: <%= User.find_by(id: request.user_id).email %>
     Start date: <%= request.start %>
     End date: <%= request.end %>
+  <button id='accept<%= request.id %>' onclick='accept_request(<%= request.id %>)' name='Accept'>Accept</button>
+  <button id='reject<%= request.id %>'>Reject</button>
+  <span id='status<%= request.id %>'></span>
   </li>
   <% end %>
 </ul>

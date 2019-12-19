@@ -15,9 +15,9 @@ gem 'sinatra-activerecord'
 
 group :test do
   gem 'capybara'
+  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit', branch: 'master'
   gem 'rspec'
   gem 'rubocop', '0.71.0'
-  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end

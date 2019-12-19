@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src='javascript/jQuery.js'></script>
+  </head>
+  <body>
+    <h1>MareBnB</h1>
+    
+    
+    <script>
+  function accept_request(id) {
+    $(`#status${id}`).text("Accepted");
+    console.log("hello")
+  }
+</script>
+<h1>Requests</h1>
+<h3>Requests I have made</h3>
+<ul>
+</ul>
+<h3>Requests I have received</h3>
+<ul>
+  
+  <li>
+    Name of listing: Test Listing 1
+    Name of user: Lodger
+    Email of user: lodger@email.com
+    Start date: 2020-01-04
+    End date: 2020-01-11
+  <button id='accept38' onclick='accept_request(38)' name='Accept'>Accept</button>
+  <button id='reject38'>Reject</button>
+  <span id='status38'></span>
+  </li>
+  
+</ul>
+
+  </body>
+</html>

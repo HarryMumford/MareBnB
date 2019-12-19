@@ -18,7 +18,9 @@ feature 'Requests' do
     expect(page).to have_content("pending")
   end
 
-  scenario 'User can see requests they have received' do
+  scenario 'User can see requests they have received and can approve them' do
+    Capybara.current_driver = Capybara.javascript_driver
+
     register('Landlord', 'landlord@email.com', 'password123')
     list_a_space("Test Listing 1", "I am a test description of test listing 1", 1000, "01/01/2020", "07/01/2020")
     click_on 'Log out'
@@ -38,6 +40,14 @@ feature 'Requests' do
     expect(page).to have_content("Email of user: lodger@email.com")
     expect(page).to have_content("Start date: 2020-01-04")
     expect(page).to have_content("End date: 2020-01-11")
+    expect(page).to have_content("Accept")
+    expect(page).to have_content("Reject")
+
+    click_button 'Accept'
+
+    expect(page).to have_content('Accepted')
+    expect(page).not_to have_selector('button', text: "Accept")
+    expect(page).not_to have_content("Reject")
   end
 
 end
