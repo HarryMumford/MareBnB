@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/thoughtbot/capybara-webkit
-  revision: 77fdac424cd6fdb5aa266b229a888cc58da8e95e
-  branch: master
-  specs:
-    capybara-webkit (1.15.1)
-      capybara (>= 2.3, < 4.0)
-      json
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -34,6 +25,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (3.0.0)
     concurrent-ruby (1.1.5)
     diff-lcs (1.3)
     docile (1.3.2)
@@ -81,6 +73,10 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
+    rubyzip (2.0.0)
+    selenium-webdriver (3.142.6)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -116,11 +112,11 @@ DEPENDENCIES
   activerecord
   bcrypt
   capybara
-  capybara-webkit!
   pg
   rake
   rspec
   rubocop (= 0.71.0)
+  selenium-webdriver
   simplecov
   simplecov-console
   sinatra

@@ -19,15 +19,15 @@ feature 'Requests' do
   end
 
   scenario 'User can see requests they have received and can approve them' do
-    Capybara.current_driver = Capybara.javascript_driver
+    Capybara.current_driver = :selenium
 
     register('Landlord', 'landlord@email.com', 'password123')
     list_a_space("Test Listing 1", "I am a test description of test listing 1", 1000, "01/01/2020", "07/01/2020")
     click_on 'Log out'
     register('Lodger', 'lodger@email.com', 'password456')
     click_button 'request_listing'
-    fill_in 'start_date', with: "04/01/2020"
-    fill_in 'end_date', with: "11/01/2020"
+    fill_in 'start_date', with: Time.new(2020, 01, 04)
+    fill_in 'end_date', with: Time.new(2020, 01, 11)
     click_button 'confirm_request'
     click_on 'Log out'
     log_in('landlord@email.com', 'password123')
@@ -48,6 +48,8 @@ feature 'Requests' do
     expect(page).to have_content('Accepted')
     expect(page).not_to have_selector('button', text: "Accept")
     expect(page).not_to have_content("Reject")
+
+    Capybara.use_default_driver
   end
 
 end
