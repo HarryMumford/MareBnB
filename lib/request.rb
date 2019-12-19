@@ -1,6 +1,6 @@
 class Request < ActiveRecord::Base
   belongs_to(:listing)
-
+  
   def self.coinciding_requests(request)
     Request.all.select do |r|
       r.id != request.id && (
@@ -17,5 +17,4 @@ class Request < ActiveRecord::Base
       date >= request.start && date <= request.end
     end
   end
-
 end
