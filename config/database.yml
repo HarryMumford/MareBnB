@@ -2,16 +2,16 @@ development:
     adapter: postgresql
     encoding: unicode
     database: MareBnB
-    pool: 2
+    pool: 10
 
 production:
     adapter: postgresql
     encoding: unicode
     database: MareBnB
-    pool: 2
+    pool: 10
 
 test:
     adapter: postgresql
     encoding: unicode
     database: MareBnB-test
-    pool: 2
+    pool: 10
