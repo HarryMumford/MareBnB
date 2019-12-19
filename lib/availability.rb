@@ -62,7 +62,7 @@ class Availability < ActiveRecord::Base
     end
 
     def check_date_class(date)
-      Date.parse(date) if date.class == String
+      date.class == String ? Date.parse(date) : date
     end
   end
 end
