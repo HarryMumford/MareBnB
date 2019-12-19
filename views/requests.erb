@@ -1,7 +1,8 @@
 <h1>Requests</h1>
 <h3>Requests I have made</h3>
-<% @listings.each do |listing| %>
-Name of Listing: <%= listing.name %>
-Description: <%= listing.description %>
-Price: <%= listing.price %>
+<% @made_requests.each do |request| %>
+Name of Listing: <%= request.listing.name %>
+Description: <%= request.listing.description %>
+Price: <%= request.listing.price %>
+Status: <%= status_of(request) %>
 <% end %>

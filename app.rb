@@ -4,6 +4,7 @@ require_relative 'lib/listing'
 require_relative 'lib/user'
 require_relative 'lib/availability'
 require_relative 'lib/request'
+require_relative 'lib/helpers/request_status.rb'
 
 class MareBnB < Sinatra::Base
   enable :sessions
@@ -88,9 +89,8 @@ class MareBnB < Sinatra::Base
   end
 
   get '/requests/:id' do
-    @requests = Request.all.select { |r| r.user_id == session[:user_id] }
-    request_listing_ids = @requests.map(&:listing_id)
-    @listings = Listing.all.select { |l| request_listing_ids.include?(l.id) }
+    @made_requests = Request.joins(:listing).select { |r| r.user_id == session[:user_id] }
+    @received_requests = Request.joins(:listing).select { |r| r.listing.user_id == session[:user_id] }
     erb :requests
   end
 
