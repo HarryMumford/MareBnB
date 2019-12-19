@@ -10,7 +10,7 @@ class MareBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
-    "MareBnB"
+    erb :index
   end
 
   get '/listings' do
