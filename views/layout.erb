@@ -4,6 +4,7 @@
   <title>MareBnB</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/layout.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -16,11 +17,12 @@
   <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
+          <img id="logo" src="img/logo-white.png">
           <a class="navbar-brand" href="#">MareBnB</a>
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Listings</a></li>
+          <li><a href="/listings">Listings</a></li>
           <li><a href="#">Requests</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -30,7 +32,6 @@
       </div>
     </nav>
 
-    <img src="img/logo.png">
     <%= @message %>
     <% if @user %>
       Welcome <%= @user.name %>
