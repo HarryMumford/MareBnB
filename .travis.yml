@@ -14,5 +14,5 @@ before_script:
   - bundle exec rake db:migrate RACK_ENV=test
 
 script:
-  - xvfb-run bundle exec rspec
+  - xvfb-run -a bundle exec rspec
   - bundle exec rubocop -c .rubocop.yml .
