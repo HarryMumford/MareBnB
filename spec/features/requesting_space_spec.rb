@@ -14,4 +14,5 @@ feature 'Requesting to hire a space' do
     expect(page).to have_content('i am a test description of test listing 1')
     expect(page).to have_content('landlord@email.com')
   end
+
 end
