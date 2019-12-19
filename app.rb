@@ -75,7 +75,7 @@ class MareBnB < Sinatra::Base
     redirect '/listings'
   end
 
-  post '/show' do
+  post '/requests/new' do
     Request.create(
       user_id: session[:user_id],
       listing_id: params[:listing_id],
@@ -88,9 +88,8 @@ class MareBnB < Sinatra::Base
   end
 
   get '/requests/:id' do
-    @requests = Request.all.select { |r| r.user_id == session[:user_id] }
-    request_listing_ids = @requests.map(&:listing_id)
-    @listings = Listing.all.select { |l| request_listing_ids.include?(l.id) }
+    @made_requests = Request.joins(:listing).select { |r| r.user_id == session[:user_id] }
+    @received_requests = Request.joins(:listing).select { |r| r.listing.user_id = session[:user_id] }
     erb :requests
   end
 
