@@ -95,5 +95,16 @@ class MareBnB < Sinatra::Base
     erb :requests
   end
 
+  post '/requests/accept' do
+    request = Request.find_by(id: params[:id])
+    Availability.confirm_request(request)
+    200
+  end
+
+  post '/requests/reject' do
+    Request.update(params[:id], rejected: true)
+    200
+  end
+
   run! if app_file == $0
 end

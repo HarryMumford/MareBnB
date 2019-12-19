@@ -5,7 +5,6 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 require 'pg'
-require 'capybara-webkit'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console
@@ -13,12 +12,12 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start
 
 require_relative '../app'
-require_relative 'setup_test_database'
+require_relative 'helpers/approval_test_setup'
 require_relative 'helpers/register_log_in'
 require_relative 'helpers/listing_space'
+require_relative 'setup_test_database'
 
 Capybara.app = MareBnB
-Capybara.javascript_driver = :webkit
 Capybara.server = :webrick
 
 RSpec.configure do |config|
