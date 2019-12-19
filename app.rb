@@ -75,7 +75,7 @@ class MareBnB < Sinatra::Base
     redirect '/listings'
   end
 
-  post '/show' do
+  post '/requests/new' do
     Request.create(
       user_id: session[:user_id],
       listing_id: params[:listing_id],

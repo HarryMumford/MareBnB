@@ -18,7 +18,7 @@ Contact: <%= @user.email %>
     <% end %>
 </table>
 <h2> Choose your dates </h2>
-<form action='/show' method='post'>
+<form action='/requests/new' method='post'>
   <input type='hidden' name='listing_id' value='<%=@listing.id%>'>
   <button type='submit' id='confirm_request'>
   <label for="start_date">Start date:</label>
