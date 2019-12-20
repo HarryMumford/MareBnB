@@ -110,9 +110,7 @@ So I can choose from the requesters
 I would like the space to be available until I approve the booking
 ```
 
-## Setting up
-
-
+# Setting up
 
 ## Database setup
 
@@ -151,7 +149,8 @@ Type this in the directory you would like to clone to
 
 ## How to test
 
-Run rspec in the terminal in the path 'MareBnB'
+Run rspec in the terminal in the path 'MareBnB' as follows
+![Alt Text](./images/gif/rspec.gif)
 
 ## MakersBnB specification
 
