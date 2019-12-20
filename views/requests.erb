@@ -1,30 +1,36 @@
-<script>
-  function accept_request(id) {
-    $(`#status${id}`).text("Accepted");
-    $(`#accept${id}`).hide();
-    $(`#reject${id}`).hide();
-    $.post(`/requests/accept`, {'id': id});
-  }
-  function reject_request(id){
-    $(`#status${id}`).text("Rejected");
-    $(`#accept${id}`).hide();
-    $(`#reject${id}`).hide();
-    $.post(`/requests/reject`, {'id': id});
-  }
-</script>
-<h1>Requests</h1>
-<h3>Requests I have made</h3>
-<ul>
-<% @made_requests.each do |request| %>
-<li>
-Name of Listing: <%= request.listing.name %>
-Description: <%= request.listing.description %>
-Price: <%= request.listing.price %>
-Status: <%= status_of(request) %>
-</li>
-<% end %>
-</ul>
-<h3>Requests I have received</h3>
+<link rel="stylesheet" type="text/css" href="/stylesheets/requests.css">
+<div class="header container-fluid">
+  <h1>Requests</h1>
+</div>
+<div class="requests col-md-6 container">
+  <h3>Requests I have made</h3>
+    <% @made_requests.each do |request| %>
+    <div class="listing">
+      <h4><%= request.listing.name %></h4>
+      <p><%= request.listing.description %></p>
+      <p>£<%= request.listing.price %>.00 per person per night</p>
+      <p>Status: <%= status_of(request) %></p>
+    </div>
+  <% end %>
+</div>
+<div class="requests col-md-6 container">
+  <h3>Requests I have made</h3>
+    <% @received_requests.each do |request| %>
+    <div class="listing">
+      <h4><%= request.listing.name %></h4>
+      <p><%= User.find_by(id: request.user_id).name %> would like to book your space!</p>
+      <p>Email: <%= User.find_by(id: request.user_id).email %></p>
+      <p>Start date: <%= request.start %></p>
+      <p>End date: <%= request.end %></p>
+      <button id='accept<%= request.id %>' onclick='accept_request(<%= request.id %>)'>Accept</button>
+      <button id='reject<%= request.id %>' onclick='reject_request(<%= request.id %>)'>Reject</button>
+      <span id='status<%= request.id %>'></span>
+    </div>
+  <% end %>
+</div>
+
+
+<!-- <h3>Requests I have received</h3>
 <ul>
   <% @received_requests.each do |request| %>
   <li>
@@ -38,4 +44,11 @@ Status: <%= status_of(request) %>
   <span id='status<%= request.id %>'></span>
   </li>
   <% end %>
-</ul>
+</ul> -->
+
+
+
+
+
+<script src="/src/request_interface.js"></script>
+
