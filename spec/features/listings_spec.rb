@@ -1,7 +1,7 @@
 feature 'create and view listings' do
 
   scenario 'user redirects to listings/new' do
-    visit '/listings'
+    register('name', 'email', 'password')
     click_button 'add_new_listing'
 
     expect(current_path).to eq('/listings/new')
