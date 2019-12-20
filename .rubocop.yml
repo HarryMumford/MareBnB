@@ -61,6 +61,7 @@ Metrics/BlockLength:
 Metrics/AbcSize:
   Exclude:
     - 'lib/availability.rb'
+    - 'lib/request.rb'
 
 Metrics/MethodLength:
   Exclude:

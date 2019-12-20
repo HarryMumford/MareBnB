@@ -1,3 +1,5 @@
+dist: bionic
+
 language: ruby
 
 rvm: 
@@ -5,11 +7,24 @@ rvm:
 
 services:
   - postgresql
+  - xvfb
+
+env:
+  global:
+    - MOZ_HEADLESS=1
+
+addons:
+  firefox: latest
+
+sudo: required
 
 before_script:
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
+  - tar -xzf geckodriver-v0.26.0-linux64.tar.gz
+  - sudo cp geckodriver /usr/bin
   - psql -c 'create database "MareBnB-test";' -U postgres
   - bundle exec rake db:migrate RACK_ENV=test
 
 script:
-  - bundle exec rspec
+  - xvfb-run -a bundle exec rspec
   - bundle exec rubocop -c .rubocop.yml .
