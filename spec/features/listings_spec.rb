@@ -38,7 +38,7 @@ feature 'create and view listings' do
     fill_in 'end_date0', with: Time.new(2020, 01, 31)
     click_button 'add_availability'
     fill_in 'start_date1', with: Time.new(2020, 03, 01)
-    fill_in 'end_date1', with: Time.new(2020,03,15)
+    fill_in 'end_date1', with: Time.new(2020, 03, 15)
 
     click_button 'post_listing'
 
