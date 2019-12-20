@@ -6,6 +6,17 @@ Nightmare accommodation at nightmare prices!
 * Add a name and description of the space
 * Request to hire a space
 
+## The Team (big dawg and three puppies)
+
+Here's the team that created this amazingly "stylistic" dynamic interactive website to share the glorious places to stay!
+
+# The BIG DAWG
+
+Big Al
+
+![Big Dawg](./images/alastair.jpg)
+![Alastair](./images/alastairG.jpg)
+
 ## User Stories
 ```
 As a user
@@ -63,6 +74,10 @@ So I can choose from the requesters
 I would like the space to be available until I approve the booking
 ```
 
+## Setting up
+
+
+
 ## Database setup
 
 After running `gem install bundler` and then `bundle install` run the following commands to set up the databases
@@ -73,6 +88,34 @@ $ createdb MareBnB-test
 $ bundle exec rake db:migrate
 $ bundle exec rake db:migrate RACK_ENV=test
 ```
+
+## Clone repository
+
+Type this in the directory you would like to clone to
+
+`git clone https://github.com/HarryMumford/MareBnB.git`
+
+## Gems used
+
+* activerecord - an Object Relation Mapping system that connects the objects of an application to tables in a relational database without writing SQL statements.
+* bcrpyt -a password hashing function
+* pg - ruby interface to the postgresql
+* rake - a task runner, Ruby's official build automation tool
+* sinatra - a dsl for creating web applications
+* sinatra-activerecord - extends sinatra with extension methods and Rake tasks for dealing with an SQL database
+
+### Testing gems
+
+* capybara - web based test automation software
+* rspec - behavioural driven framework
+* rubocop - linter to ensure conventional ruby was written
+* selenium-webdriver - drives a browser natively. A tool used to automate web application testing verifying that it works as expected.
+* simplecov - a code coverage analysis tool
+* simplecov-console - outputs the test coverage into console
+
+## How to test
+
+Run rspec in the terminal in the path 'MareBnB'
 
 ## MakersBnB specification
 
@@ -85,7 +128,7 @@ We would like a web application that allows users to list spaces they have avail
 - ~~Users should be able to name their space, provide a short description of the space, and a price per night.~~
 - ~~Users should be able to offer a range of dates where their space is available.~~
 - ~~Any signed-up user can request to hire any space for one night,~~ and this should be approved by the user that owns that space.
-- Nights for which a space has already been booked should not be available for users to book that space.
+- ~~Nights for which a space has already been booked should not be available for users to book that space.
 - Until a user has confirmed a booking request, that space can still be booked for that night.
 
 ### Nice-to-haves
@@ -112,3 +155,7 @@ Mockups for MakersBnB are available [here](https://github.com/makersacademy/cour
 
 
 ![Tracking pixel](https://githubanalytics.herokuapp.com/course/makersbnb/specification_and_mockups.md)
+
+Our worst enemies the kittens!
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
