@@ -51,7 +51,7 @@ The Golden Retriever (pup 3)
 
 AKA Jamie
 
-<img src="./images/jamiew.png" width="200"/>
+<img src="./images/jamieW.png" width="200"/>
 
 ## User Stories
 ```
