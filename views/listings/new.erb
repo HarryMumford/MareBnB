@@ -1,13 +1,34 @@
-<form action="/listings" method="post">
+<link rel="stylesheet" type="text/css" href="/stylesheets/new_listing.css">
 
-  <input id="listing_name" type="text" name="name" placeholder="Name" required>
-  <input id="listing_description" type="text" name="description" placeholder="Description" required>
-  <input id="listing_price" type="number" name="price" placeholder="Price" min='5' max='25000' required>
+<div id="title">
+  <h2>List a space</h2>
+</div>
 
-  <label for="start_date">Start date:</label>
-  <input type="date" id="start_date" name="start_date" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2020-12-31">
-  <label for="end_date">End date:</label>
-  <input type="date" id="end_date" name="end_date" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2020-12-31">
-  
-  <button id="post_listing" type="submit">Post</button>
-</form>
+<div class="listing-form">
+  <form id="new-listing" action="/listings" method="post">
+    <div class = "form-group">
+      <label for="listing_name">Name:</label>
+      <input id="listing_name" class="form-control" type="text" name="name" required>
+    </div>
+    <div class = "form-group">
+      <label for="listing_description">Description:</label>
+      <input id="listing_description" class="form-control" type="text" name="description" required>
+    </div>
+    <div class="form-group">
+      <label for="listing_price">Price: (in £)</label>
+      <input id="listing_price" class="form-control" type="number" name="price" min='5' max='25000' aria-describedby="min-max-price" required>
+      <small id="min-max-price" class="form-text text-muted">Price must be between £5 - £25,000</small>
+    </div>
+
+    <div class = "form-group">
+      <label for="start_date">Start date:</label>
+       <input type="date" id="start_date" name="start_date" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2020-12-31">
+    </div>
+    <div class = "form-group">
+        <label for="end_date">End date:</label>
+        <input type="date" id="end_date" name="end_date" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2020-12-31">
+    </div>
+ 
+    <button id="post_listing" class="btn btn-primary" type="submit">Post</button>
+  </form>
+</div>

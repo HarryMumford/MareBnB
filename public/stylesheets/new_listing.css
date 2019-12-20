@@ -1,0 +1,19 @@
+.listing-form{
+  border: 1.5px solid grey;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#new-listing{
+  margin: 5%;
+}
+
+#title{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#listing_description{
+  height: 100px;
+}
