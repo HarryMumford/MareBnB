@@ -14,7 +14,8 @@ Here's the team that created this amazingly "stylistic" dynamic interactive webs
 
 Big Al
 
-![Big Dawg](./images/alastair.jpg)
+![BigDawg](./images/alastair.jpg)
+<img src="BigDawg" width="40%">
 ![Alastair](./images/alastairG.jpg)
 
 ## User Stories
