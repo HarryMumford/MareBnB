@@ -73,9 +73,9 @@ feature 'Requests' do
     click_link 'user_requests'
 
     expect(page).to have_content("Requests I have received")
-    expect(page).to have_content("Name of listing: Test Listing 1")
-    expect(page).to have_content("Name of user: Lodger")
-    expect(page).to have_content("Email of user: lodger@email.com")
+    expect(page).to have_content("Test Listing 1")
+    expect(page).to have_content("Lodger")
+    expect(page).to have_content("Email: lodger@email.com")
     expect(page).to have_content("Start date: 2020-01-04")
     expect(page).to have_content("End date: 2020-01-11")
   end
