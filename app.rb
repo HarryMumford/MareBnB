@@ -59,7 +59,7 @@ class MareBnB < Sinatra::Base
   end
 
   get '/login' do
-    @message = session[:message]
+    @message = session.delete(:message)
     erb :login
   end
 

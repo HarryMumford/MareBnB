@@ -1,14 +1,18 @@
-<form action="/listings/new" method="get">
-  <button id="add_new_listing" type="submit">Add new listing</button>
-</form>
+<% if @user %>
+  <form action="/listings/new" method="get">
+    <button id="add_new_listing" type="submit">Add new listing</button>
+  </form>
+<% end %>
 <ul>
   <% @listings.each do |listing| %>
     <li><%= listing.name %> (<%= listing.price %>): <%= listing.description %>
+    <% if @user %>
     <form action="/listings/<%= listing.id %>" method="get">
       <button id="request_listing" type="submit">
         Request Listing
       </button>
     </form>
+  <% end %>
   </li>
   <% end %>
 </ul>
