@@ -33,11 +33,13 @@ class MareBnB < Sinatra::Base
       price: params[:price],
       user_id: session[:user_id]
     )
-    Availability.create(
-      start: params[:start_date],
-      end: params[:end_date],
-      listing_id: listing.id
-    )
+    params.keys.select { |x| x.to_s.include? 'start' }.each do |key|
+      Availability.create(
+        start: params[key],
+        end: params[key.gsub('start', 'end')],
+        listing_id: listing.id
+      )
+    end
     redirect '/listings'
   end
 
