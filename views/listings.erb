@@ -1,14 +1,20 @@
-<form action="/listings/new" method="get">
-  <button id="add_new_listing" type="submit">Add new listing</button>
-</form>
-<ul>
-  <% @listings.each do |listing| %>
-    <li><%= listing.name %> (<%= listing.price %>): <%= listing.description %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/listings.css">
+<div class="listing container-fluid">
+  <form action="/listings/new" method="get">
+    <button id="add_new_listing" type="submit">Add new listing</button>
+  </form>
+</div>
+
+
+<% @listings.each do |listing| %>
+  <div class="listing container-fluid">
+    <h4><%= listing.name %></h4> 
+    <p><%= listing.description %></p>
+    <p>£<%= listing.price %>.00</p>
     <form action="/listings/<%= listing.id %>" method="get">
       <button id="request_listing" type="submit">
         Request Listing
       </button>
     </form>
-  </li>
-  <% end %>
-</ul>
+  </div>
+<% end %>
