@@ -1,18 +1,49 @@
-<form action="/listings" method="post">
-  <button id="post_listing" type="submit">Post</button>
-  <br>
+<link rel="stylesheet" type="text/css" href="/stylesheets/new_listing.css">
 
-  <input id="listing_name" type="text" name="name" placeholder="Name" required>
-  <input id="listing_description" type="text" name="description" placeholder="Description" required>
-  <input id="listing_price" type="number" name="price" placeholder="Price" min='5' max='25000' required>
-  <br>
+<div id="title">
+  <h2>List a space</h2>
+</div>
 
-  <label for="start_date0">Start date:</label>
-  <input type="date" id="start_date0" name="start_date0" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2025-12-31">
-  <label for="end_date0">End date:</label>
-  <input type="date" id="end_date0" name="end_date0" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2025-12-31">
-  <button type='button' id='add_availability' onclick='addAvailability(1)'>Add availabilty</button>
-</form>
+<div class="listing-form">
+  <div class="form-group">
+    
+  </div>
+  
+  <form id="new-listing" action="/listings" method="post">
+    <div class="form-group">
+      <label for="listing_name">Name:</label>
+      <input id="listing_name" class="form-control" type="text" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="listing_description">Description:</label>
+      <input id="listing_description" class="form-control" type="text" name="description" required>
+    </div>
+    <div class="form-group">
+      <label for="listing_price">Price: (in £)</label>
+      <input id="listing_price" class="form-control" type="number" name="price" min='5' max='25000' aria-describedby="min-max-price" required>
+      <small id="min-max-price" class="form-text text-muted">Price must be between £5 - £25,000</small>
+    </div>
+
+    <!-- <div class = "form-group">
+      <label for="start_date0">Start date:</label>
+      <input type="date" id="start_date0" name="start_date0" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2025-12-31">
+    </div>
+    <div class = "form-group">
+      <label for="end_date0">End date:</label>
+      <input type="date" id="end_date0" name="end_date0" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2025-12-31">
+    </div> -->
+
+    <label for="start_date0">Start date:</label>
+    <input type="date" id="start_date0" name="start_date0" value="<%= Time.now.strftime("%F") %>" min="2019-12-01" max="2025-12-31">
+    <label for="end_date0">End date:</label>
+    <input type="date" id="end_date0" name="end_date0" value="<%= (Time.now+86400).strftime("%F") %>" min="2019-12-01" max="2025-12-31">
+
+    <button type='button' id='add_availability' class='btn btn-primary' onclick='addAvailability(1)'>Add availabilty</button>
+
+    <button id="post_listing" class="btn btn-primary" type="submit">Post</button>
+ 
+  </form>
+</div>
 
 <script>
   function addAvailability(date_index) {
@@ -22,6 +53,10 @@
     button.remove();
     container.append('<br>');
 
+    const post = $('#post_listing');
+    post.remove();
+    container.append('<br>');
+    
     const start = document.createElement('input');
     start.type = 'date';
     start.id = `start_date${date_index}`;
@@ -37,9 +72,10 @@
     end.name = `end_date${date_index}`;
     end.value = $(`#end_date${date_index-1}`).val();
 
-    container.append(`<label for='end_date${date_index}'>Start date:</label>`);
+    container.append(`<label for='end_date${date_index}'>End date:</label>`);
     container.append(end);
 
-    container.append(`<button type='button' id='add_availability' onclick='addAvailability(${date_index+1})'>Add availability</button>`);
+    container.append(`<button type='button' id='add_availability' class='btn btn-primary' onclick='addAvailability(${date_index+1})'>Add availability</button>`);
+    container.append(`<button id="post_listing" class="btn btn-primary" type="submit">Post</button>`);
   }
 </script>
