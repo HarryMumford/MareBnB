@@ -3,7 +3,7 @@ class Request < ActiveRecord::Base
   
   def self.coinciding_requests(request)
     Request.all.select do |r|
-      r.id != request.id && (
+      r.id != request.id && r.listing_id == request.listing_id && (
         date_within_request(r.start, request) ||
         date_within_request(r.end, request) ||
         request.start >= r.start && r.end >= request.end
