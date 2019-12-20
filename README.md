@@ -12,10 +12,46 @@ Here's the team that created this amazingly "stylistic" dynamic interactive webs
 
 # The BIG DAWG
 
-Big Al
+The Great Dane (Big Dawg)
 
-![BigDawg](./images/alastair.jpg =100x100)
-![Alastair](./images/alastairG.jpg)
+<img src="./images/alastair.jpg" width="400"/>
+
+AKA Big Al
+
+<img src="./images/alastairG.jpg" width="200"/>
+
+---
+---
+
+The Shih Tzu (pup 1)
+
+<img src="./images/harrison.jpg" width="300"/>
+
+AKA Harrison
+
+<img src="./images/harrisonY.jpg" width="200"/>
+
+---
+---
+
+The King Charles Spaniel (pup 2)
+
+<img src="./images/harry.jpg" width="300"/>
+
+AKA Harry
+
+<img src="./images/harryM.jpg" width="200"/>
+
+---
+---
+
+The Golden Retriever (pup 3)
+
+<img src="./images/jamie.jpg" width="300"/>
+
+AKA Jamie
+
+<img src="./images/jamiew.png" width="200"/>
 
 ## User Stories
 ```
